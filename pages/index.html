@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MenteCare - Cuidando da sua Saúde Mental</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <i class="fas fa-heart"></i>
+          <span>TerapiApp</span>
+        </div>
+        <ul class="nav-menu">
+          <li>
+            <a href="./index.html" class="nav-link active">Início</a>
+          </li>
+          <li><a href="./registro.html" class="nav-link">Registro</a></li>
+          <li><a href="./plano.html" class="nav-link">Plano</a></li>
+          <li><a href="./ajuda.html" class="nav-link">Ajuda</a></li>
+          <li><a href="./historico.html" class="nav-link">Histórico</a></li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Olá, André!</h1>
+          <p>Como você está se sentindo hoje?</p>
+          <div class="mood-buttons">
+            <button class="mood-btn happy" onclick="selectMood('happy')">
+              <i class="fas fa-smile"></i>
+              <span>Bem</span>
+            </button>
+            <button class="mood-btn neutral" onclick="selectMood('neutral')">
+              <i class="fas fa-meh"></i>
+              <span>Normal</span>
+            </button>
+            <button class="mood-btn sad" onclick="selectMood('sad')">
+              <i class="fas fa-frown"></i>
+              <span>Triste</span>
+            </button>
+            <button class="mood-btn anxious" onclick="selectMood('anxious')">
+              <i class="fas fa-dizzy"></i>
+              <span>Ansioso</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-actions">
+        <h2>Ações Rápidas</h2>
+        <div class="actions-grid">
+          <div class="action-card" onclick="navigateTo('registro.html')">
+            <div class="card-icon">
+              <i class="fas fa-edit"></i>
+            </div>
+            <h3>Registro de Humor</h3>
+            <p>Anote como você está se sentindo</p>
+          </div>
+
+          <div class="action-card" onclick="navigateTo('plano.html')">
+            <div class="card-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Plano de Segurança</h3>
+            <p>Seu plano personalizado de cuidados</p>
+          </div>
+
+          <div class="action-card" onclick="navigateTo('ajuda.html')">
+            <div class="card-icon">
+              <i class="fas fa-hands-helping"></i>
+            </div>
+            <h3>Precisa de Ajuda?</h3>
+            <p>Encontre apoio quando precisar</p>
+          </div>
+
+          <div class="action-card" onclick="navigateTo('historico.html')">
+            <div class="card-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Histórico</h3>
+            <p>Veja seu progresso ao longo do tempo</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="daily-tip">
+        <div class="tip-card">
+          <div class="tip-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <div class="tip-content">
+            <h3>Dica do Dia</h3>
+            <p>
+              Respire fundo por 5 segundos, segure por 3 e solte por 7. Repita 3
+              vezes para reduzir a ansiedade.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 MenteCare - Cuidando da sua saúde mental</p>
+        <div class="footer-links">
+          <a href="#" class="footer-link">Privacidade</a>
+          <a href="#" class="footer-link">Termos</a>
+          <a href="#" class="footer-link">Contato</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./scripts/script.js"></script>
+  </body>
+</html>

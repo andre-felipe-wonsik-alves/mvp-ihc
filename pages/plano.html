@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plano de Segurança - MenteCare</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <i class="fas fa-heart"></i>
+          <span>MenteCare</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Início</a></li>
+          <li><a href="registro.html" class="nav-link">Registro</a></li>
+          <li><a href="plano.html" class="nav-link active">Plano</a></li>
+          <li><a href="ajuda.html" class="nav-link">Ajuda</a></li>
+          <li><a href="historico.html" class="nav-link">Histórico</a></li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <section class="page-header">
+        <h1><i class="fas fa-shield-alt"></i> Plano de Segurança</h1>
+        <p>Seu plano personalizado para momentos difíceis</p>
+      </section>
+
+      <div class="form-container">
+        <form id="safetyPlanForm">
+          <div class="plan-step">
+            <h3><span class="step-number">1</span> Sinais de Alerta</h3>
+            <div class="form-group">
+              <label for="warningSignals">
+                <i class="fas fa-exclamation-triangle"></i> Identifique seus
+                sinais de alerta
+              </label>
+              <textarea
+                id="warningSignals"
+                name="warningSignals"
+                class="form-control"
+                placeholder="Ex: Pensamentos negativos, isolamento, mudanças no sono..."
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="plan-step">
+            <h3>
+              <span class="step-number">2</span> Estratégias de Enfrentamento
+            </h3>
+            <div class="form-group">
+              <label for="copingStrategies">
+                <i class="fas fa-tools"></i> O que você pode fazer sozinho para
+                se sentir melhor?
+              </label>
+              <textarea
+                id="copingStrategies"
+                name="copingStrategies"
+                class="form-control"
+                placeholder="Ex: Respirar fundo, ouvir música, fazer exercícios, meditar..."
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="plan-step">
+            <h3><span class="step-number">3</span> Apoio Social</h3>
+            <div class="form-group">
+              <label for="socialSupport">
+                <i class="fas fa-users"></i> Pessoas que podem te ajudar
+              </label>
+              <textarea
+                id="socialSupport"
+                name="socialSupport"
+                class="form-control"
+                placeholder="Nome e telefone de familiares, amigos ou pessoas de confiança..."
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="plan-step">
+            <h3><span class="step-number">4</span> Contatos Profissionais</h3>
+            <div class="form-group">
+              <label for="professionalContacts">
+                <i class="fas fa-user-md"></i> Profissionais de saúde mental
+              </label>
+              <textarea
+                id="professionalContacts"
+                name="professionalContacts"
+                class="form-control"
+                placeholder="Psicólogo, psiquiatra, médico de família - nomes e telefones..."
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="plan-step">
+            <h3><span class="step-number">5</span> Ambiente Seguro</h3>
+            <div class="form-group">
+              <label for="safeEnvironment">
+                <i class="fas fa-home"></i> Como tornar seu ambiente mais
+                seguro?
+              </label>
+              <textarea
+                id="safeEnvironment"
+                name="safeEnvironment"
+                class="form-control"
+                placeholder="Remover objetos perigosos, pedir para alguém ficar com você..."
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="plan-step">
+            <h3><span class="step-number">6</span> Motivos para Viver</h3>
+            <div class="form-group">
+              <label for="reasonsToLive">
+                <i class="fas fa-star"></i> O que te motiva a continuar?
+              </label>
+              <textarea
+                id="reasonsToLive"
+                name="reasonsToLive"
+                class="form-control"
+                placeholder="Família, sonhos, projetos, pets, experiências que quer viver..."
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onclick="window.history.back()"
+            >
+              <i class="fas fa-arrow-left"></i> Voltar
+            </button>
+            <button
+              type="button"
+              class="btn btn-success"
+              onclick="submitSafetyPlan()"
+            >
+              <i class="fas fa-save"></i> Salvar Plano
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="emergency-section">
+        <h3><i class="fas fa-phone"></i> Em Caso de Emergência</h3>
+        <div class="emergency-grid">
+          <div class="emergency-card">
+            <i class="fas fa-phone-alt"></i>
+            <h4>CVV - Centro de Valorização da Vida</h4>
+            <p class="emergency-number">188</p>
+            <p>24 horas, gratuito</p>
+          </div>
+          <div class="emergency-card">
+            <i class="fas fa-ambulance"></i>
+            <h4>SAMU</h4>
+            <p class="emergency-number">192</p>
+            <p>Emergências médicas</p>
+          </div>
+          <div class="emergency-card">
+            <i class="fas fa-hospital"></i>
+            <h4>Pronto Socorro</h4>
+            <p class="emergency-number">193</p>
+            <p>Bombeiros</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="safety-tips">
+        <h3><i class="fas fa-lightbulb"></i> Dicas Importantes</h3>
+        <div class="tips-list">
+          <div class="tip-item">
+            <i class="fas fa-check-circle"></i>
+            <p>Revise seu plano regularmente com seu terapeuta</p>
+          </div>
+          <div class="tip-item">
+            <i class="fas fa-check-circle"></i>
+            <p>Compartilhe este plano com pessoas de confiança</p>
+          </div>
+          <div class="tip-item">
+            <i class="fas fa-check-circle"></i>
+            <p>Mantenha os contatos sempre atualizados</p>
+          </div>
+          <div class="tip-item">
+            <i class="fas fa-check-circle"></i>
+            <p>Lembre-se: pedir ajuda é um sinal de força</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 MenteCare - Cuidando da sua saúde mental</p>
+        <div class="footer-links">
+          <a href="#" class="footer-link">Privacidade</a>
+          <a href="#" class="footer-link">Termos</a>
+          <a href="#" class="footer-link">Contato</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

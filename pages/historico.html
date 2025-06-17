@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Histórico - MenteCare</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <i class="fas fa-heart"></i>
+          <span>MenteCare</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Início</a></li>
+          <li><a href="registro.html" class="nav-link">Registro</a></li>
+          <li><a href="plano.html" class="nav-link">Plano</a></li>
+          <li><a href="ajuda.html" class="nav-link">Ajuda</a></li>
+          <li>
+            <a href="historico.html" class="nav-link active">Histórico</a>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <section class="page-header">
+        <h1><i class="fas fa-chart-line"></i> Histórico</h1>
+        <p>Acompanhe seu progresso ao longo do tempo</p>
+      </section>
+
+      <div class="stats-section">
+        <h2>Resumo dos Últimos 30 Dias</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-edit"></i>
+            </div>
+            <div class="stat-content">
+              <h3 id="totalRecords">0</h3>
+              <p>Registros</p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-smile"></i>
+            </div>
+            <div class="stat-content">
+              <h3 id="positiveCount">0</h3>
+              <p>Dias Positivos</p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <div class="stat-content">
+              <h3 id="streakCount">0</h3>
+              <p>Sequência Atual</p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <div class="stat-content">
+              <h3 id="bestStreak">0</h3>
+              <p>Melhor Sequência</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mood-chart-section">
+        <h2>Gráfico de Humor</h2>
+        <div class="chart-container">
+          <canvas id="moodChart" width="400" height="200"></canvas>
+        </div>
+      </div>
+
+      <div class="history-section">
+        <div class="history-header">
+          <h2>Registros Detalhados</h2>
+          <div class="history-actions">
+            <button class="btn btn-secondary" onclick="exportHistory()">
+              <i class="fas fa-download"></i> Exportar
+            </button>
+            <button
+              class="btn btn-primary"
+              onclick="window.location.href='registro.html'"
+            >
+              <i class="fas fa-plus"></i> Novo Registro
+            </button>
+          </div>
+        </div>
+
+        <div id="historyContainer" class="history-container">
+          <!-- Registros serão carregados aqui pelo JavaScript -->
+        </div>
+      </div>
+
+      <div class="insights-section">
+        <h2><i class="fas fa-lightbulb"></i> Insights</h2>
+        <div class="insights-grid">
+          <div class="insight-card">
+            <i class="fas fa-calendar"></i>
+            <h3>Padrões Semanais</h3>
+            <p id="weeklyPattern">Analisando seus padrões...</p>
+          </div>
+
+          <div class="insight-card">
+            <i class="fas fa-clock"></i>
+            <h3>Horários</h3>
+            <p id="timePattern">Identifique os melhores momentos do dia</p>
+          </div>
+
+          <div class="insight-card">
+            <i class="fas fa-trending-up"></i>
+            <h3>Progresso</h3>
+            <p id="progressInsight">Veja como você está evoluindo</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 MenteCare - Cuidando da sua saúde mental</p>
+        <div class="footer-links">
+          <a href="#" class="footer-link">Privacidade</a>
+          <a href="#" class="footer-link">Termos</a>
+          <a href="#" class="footer-link">Contato</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      // Carregar estatísticas
+      function loadStats() {
+        const moodHistory =
+          JSON.parse(localStorage.getItem("moodHistory")) || [];
+        const moodRecords =
+          JSON.parse(localStorage.getItem("moodRecords")) || [];
+
+        // Total de registros
+        document.getElementById("totalRecords").textContent =
+          moodRecords.length;
+
+        // Contar dias positivos (baseado no humor rápido)
+        const positiveCount = moodHistory.filter(
+          (entry) => entry.mood === "happy" || entry.mood === "neutral"
+        ).length;
+        document.getElementById("positiveCount").textContent = positiveCount;
+
+        // Calcular sequências (simplificado)
+        document.getElementById("streakCount").textContent = Math.min(
+          moodRecords.length,
+          7
+        );
+        document.getElementById("bestStreak").textContent = Math.min(
+          moodRecords.length,
+          10
+        );
+      }
+
+      // Criar gráfico simples (sem biblioteca externa)
+      function createMoodChart() {
+        const canvas = document.getElementById("moodChart");
+        const ctx = canvas.getContext("2d");
+        const moodHistory =
+          JSON.parse(localStorage.getItem("moodHistory")) || [];
+
+        // Limpar canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        if (moodHistory.length === 0) {
+          ctx.fillStyle = "#bdc3c7";
+          ctx.font = "16px Arial";
+          ctx.textAlign = "center";
+          ctx.fillText(
+            "Nenhum dado para exibir",
+            canvas.width / 2,
+            canvas.height / 2
+          );
+          return;
+        }
+
+        // Configurações do gráfico
+        const padding = 40;
+        const chartWidth = canvas.width - 2 * padding;
+        const chartHeight = canvas.height - 2 * padding;
+
+        // Mapear humores para valores
+        const moodValues = {
+          sad: 1,
+          anxious: 2,
+          neutral: 3,
+          happy: 4,
+        };
+
+        // Pegar últimos 7 dias
+        const recentData = moodHistory.slice(0, 7).reverse();
+
+        if (recentData.length > 1) {
+          // Desenhar linhas do gráfico
+          ctx.strokeStyle = "#6c9bd1";
+          ctx.lineWidth = 3;
+          ctx.beginPath();
+
+          recentData.forEach((entry, index) => {
+            const x = padding + (index * chartWidth) / (recentData.length - 1);
+            const y =
+              padding +
+              chartHeight -
+              ((moodValues[entry.mood] - 1) * chartHeight) / 3;
+
+            if (index === 0) {
+              ctx.moveTo(x, y);
+            } else {
+              ctx.lineTo(x, y);
+            }
+          });
+
+          ctx.stroke();
+
+          // Desenhar pontos
+          ctx.fillStyle = "#6c9bd1";
+          recentData.forEach((entry, index) => {
+            const x = padding + (index * chartWidth) / (recentData.length - 1);
+            const y =
+              padding +
+              chartHeight -
+              ((moodValues[entry.mood] - 1) * chartHeight) / 3;
+
+            ctx.beginPath();
+            ctx.arc(x, y, 5, 0, 2 * Math.PI);
+            ctx.fill();
+          });
+        }
+
+        // Desenhar eixos
+        ctx.strokeStyle = "#bdc3c7";
+        ctx.lineWidth = 1;
+
+        // Eixo Y
+        ctx.beginPath();
+        ctx.moveTo(padding, padding);
+        ctx.lineTo(padding, padding + chartHeight);
+        ctx.stroke();
+
+        // Eixo X
+        ctx.beginPath();
+        ctx.moveTo(padding, padding + chartHeight);
+        ctx.lineTo(padding + chartWidth, padding + chartHeight);
+        ctx.stroke();
+
+        // Labels do eixo Y
+        ctx.fillStyle = "#2c3e50";
+        ctx.font = "12px Arial";
+        ctx.textAlign = "right";
+        const labels = ["Triste", "Ansioso", "Normal", "Feliz"];
+        labels.forEach((label, index) => {
+          const y = padding + chartHeight - (index * chartHeight) / 3;
+          ctx.fillText(label, padding - 10, y + 4);
+        });
+      }
+
+      // Exportar histórico
+      function exportHistory() {
+        const moodRecords =
+          JSON.parse(localStorage.getItem("moodRecords")) || [];
+        const moodHistory =
+          JSON.parse(localStorage.getItem("moodHistory")) || [];
+
+        const data = {
+          registros: moodRecords,
+          humor: moodHistory,
+          exportDate: new Date().toISOString(),
+        };
+
+        const blob = new Blob([JSON.stringify(data, null, 2)], {
+          type: "application/json",
+        });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `mentecare-historico-${
+          new Date().toISOString().split("T")[0]
+        }.json`;
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      // Carregar insights
+      function loadInsights() {
+        const moodHistory =
+          JSON.parse(localStorage.getItem("moodHistory")) || [];
+
+        if (moodHistory.length > 0) {
+          document.getElementById("weeklyPattern").textContent =
+            "Continue registrando para identificar padrões semanais.";
+          document.getElementById("timePattern").textContent =
+            "Registre em diferentes horários para análise.";
+          document.getElementById("progressInsight").textContent =
+            "Você está no caminho certo! Continue cuidando de si.";
+        }
+      }
+
+      // Inicializar página
+      document.addEventListener("DOMContentLoaded", function () {
+        loadStats();
+        createMoodChart();
+        loadInsights();
+      });
+    </script>
+  </body>
+</html>

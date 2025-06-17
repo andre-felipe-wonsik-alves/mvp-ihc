@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Humor - MenteCare</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <i class="fas fa-heart"></i>
+          <span>MenteCare</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Início</a></li>
+          <li><a href="registro.html" class="nav-link active">Registro</a></li>
+          <li><a href="plano.html" class="nav-link">Plano</a></li>
+          <li><a href="ajuda.html" class="nav-link">Ajuda</a></li>
+          <li><a href="historico.html" class="nav-link">Histórico</a></li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <section class="page-header">
+        <h1><i class="fas fa-edit"></i> Registro de Mudança de Humor</h1>
+        <p>Anote como você está se sentindo para acompanhar seu bem-estar</p>
+      </section>
+
+      <div class="form-container">
+        <form id="moodForm">
+          <div class="form-group">
+            <label for="date"> <i class="fas fa-calendar"></i> Data </label>
+            <input
+              type="date"
+              id="date"
+              name="date"
+              class="form-control"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="positiveEmotions">
+              <i class="fas fa-smile"></i> Emoções Positivas
+            </label>
+            <textarea
+              id="positiveEmotions"
+              name="positiveEmotions"
+              class="form-control"
+              placeholder="Descreva as emoções positivas que você sentiu hoje..."
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="negativeEmotions">
+              <i class="fas fa-frown"></i> Emoções Negativas
+            </label>
+            <textarea
+              id="negativeEmotions"
+              name="negativeEmotions"
+              class="form-control"
+              placeholder="Descreva as emoções negativas que você sentiu hoje..."
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="situation">
+              <i class="fas fa-map-marker-alt"></i> Situação
+            </label>
+            <textarea
+              id="situation"
+              name="situation"
+              class="form-control"
+              placeholder="Descreva a situação ou contexto que influenciou seu humor..."
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="thoughts">
+              <i class="fas fa-brain"></i> Pensamentos
+            </label>
+            <textarea
+              id="thoughts"
+              name="thoughts"
+              class="form-control"
+              placeholder="Quais pensamentos passaram pela sua mente?"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="reaction"> <i class="fas fa-bolt"></i> Reação </label>
+            <textarea
+              id="reaction"
+              name="reaction"
+              class="form-control"
+              placeholder="Como você reagiu à situação?"
+            ></textarea>
+          </div>
+
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onclick="window.history.back()"
+            >
+              <i class="fas fa-arrow-left"></i> Cancelar
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="submitMoodForm()"
+            >
+              <i class="fas fa-save"></i> Confirmar
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="instructions-card">
+        <h3><i class="fas fa-info-circle"></i> Instruções</h3>
+        <div class="instructions-content">
+          <p>
+            <strong
+              >Preencha os campos com o máximo de informação possível.</strong
+            >
+          </p>
+          <ul>
+            <li>
+              Se o motivo do atendimento for proteção a crise suicida, faça um
+              <a href="plano.html">plano de segurança</a>
+            </li>
+            <li>Para mudanças de humor sem risco suicida, use este registro</li>
+            <li>Dê preferência a informações personalizadas</li>
+            <li>Seja honesto sobre seus sentimentos</li>
+            <li>Não há respostas certas ou erradas</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="quick-tips">
+        <h3><i class="fas fa-lightbulb"></i> Dicas Rápidas</h3>
+        <div class="tips-grid">
+          <div class="tip-item">
+            <i class="fas fa-heart"></i>
+            <p>Seja gentil consigo mesmo ao registrar suas emoções</p>
+          </div>
+          <div class="tip-item">
+            <i class="fas fa-clock"></i>
+            <p>Registre regularmente para identificar padrões</p>
+          </div>
+          <div class="tip-item">
+            <i class="fas fa-chart-line"></i>
+            <p>Use o histórico para acompanhar seu progresso</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 MenteCare - Cuidando da sua saúde mental</p>
+        <div class="footer-links">
+          <a href="#" class="footer-link">Privacidade</a>
+          <a href="#" class="footer-link">Termos</a>
+          <a href="#" class="footer-link">Contato</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      // Definir data atual como padrão
+      document.getElementById("date").valueAsDate = new Date();
+    </script>
+  </body>
+</html>
