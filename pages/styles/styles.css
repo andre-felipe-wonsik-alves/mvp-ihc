@@ -17,9 +17,9 @@ body {
 :root {
     --primary-color: #6c9bd1;      /* Azul suave */
     --secondary-color: #a8d5ba;    /* Verde claro */
-    --accent-color: #f4a261;       /* Laranja suave */
+    --accent-color: #61d2f4;       /* Laranja suave */
     --success-color: #2a9d8f;      /* Verde escuro */
-    --warning-color: #e76f51;      /* Coral */
+    --warning-color: #2aacd3;      /* Coral */
     --light-color: #f8f9fa;        /* Branco suave */
     --dark-color: #2c3e50;         /* Azul escuro */
     --gray-light: #ecf0f1;         /* Cinza claro */
