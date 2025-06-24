@@ -48,7 +48,7 @@
         >
           <div
             style="
-              width: 25%;
+              width: 50%;
               height: 100%;
               background-color: var(--primary-color);
               border-radius: 10px 0 0 10px;
@@ -56,7 +56,7 @@
           ></div>
           <div
             style="
-              width: 75%;
+              width: 50%;
               height: 100%;
               background-color: var(--gray-medium);
               border-radius: 0 10px 10px 0;
@@ -68,17 +68,19 @@
       <div class="form-container">
         <form id="safetyPlanForm">
           <div class="plan-step">
-            <h3><span class="step-number">1</span> Sinais de Alerta</h3>
+            <h3>
+              <span class="step-number">2</span> Estratégias de Enfrentamento
+            </h3>
             <div class="form-group">
-              <label for="warningSignals">
-                <i class="fas fa-exclamation-triangle"></i> Identifique seus
-                sinais de alerta
+              <label for="copingStrategies">
+                <i class="fas fa-tools"></i> O que você pode fazer sozinho para
+                se sentir melhor?
               </label>
               <textarea
-                id="warningSignals"
-                name="warningSignals"
+                id="copingStrategies"
+                name="copingStrategies"
                 class="form-control"
-                placeholder="Ex: Pensamentos negativos, isolamento, mudanças no sono..."
+                placeholder="Ex: Respirar fundo, ouvir música, fazer exercícios, meditar..."
               ></textarea>
             </div>
           </div>
@@ -91,10 +93,12 @@
             >
               <i class="fas fa-arrow-left"></i> Voltar
             </button>
-            <button type="button" class="btn btn-primary">
-              <a href="plano_next.html"
-                ><i class="fas fa-arrow-right"></i> Avançar</a
-              >
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="window.history.back()"
+            >
+              <i class="fas fa-arrow-right"></i> Avançar
             </button>
             <button
               type="button"
@@ -105,6 +109,30 @@
             </button>
           </div>
         </form>
+      </div>
+
+      <div class="emergency-section">
+        <h3><i class="fas fa-phone"></i> Em Caso de Emergência</h3>
+        <div class="emergency-grid">
+          <div class="emergency-card">
+            <i class="fas fa-phone-alt"></i>
+            <h4>CVV - Centro de Valorização da Vida</h4>
+            <p class="emergency-number">188</p>
+            <p>24 horas, gratuito</p>
+          </div>
+          <div class="emergency-card">
+            <i class="fas fa-ambulance"></i>
+            <h4>SAMU</h4>
+            <p class="emergency-number">192</p>
+            <p>Emergências médicas</p>
+          </div>
+          <div class="emergency-card">
+            <i class="fas fa-hospital"></i>
+            <h4>Pronto Socorro</h4>
+            <p class="emergency-number">193</p>
+            <p>Bombeiros</p>
+          </div>
+        </div>
       </div>
 
       <div class="safety-tips">
