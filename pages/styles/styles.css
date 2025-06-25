@@ -49,6 +49,13 @@ body {
     align-items: center;
 }
 
+.logo-container {
+    width:120%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 .nav-logo {
     display: flex;
     align-items: center;
@@ -56,12 +63,26 @@ body {
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--primary-color);
+    padding-right: 1.3rem;
 }
 
 .nav-logo i {
     color: var(--warning-color);
 }
 
+.div-medico {
+    display: flex;
+    flex-direction: line;
+    justify-content: center;
+    background-color: #c3cfe2;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.medico {
+    max-width: 70%;
+    aspect-ratio: 1;
+}
 .nav-menu {
     display: flex;
     list-style: none;
@@ -1129,6 +1150,8 @@ textarea.form-control {
     color: var(--gray-medium);
     line-height: 1.4;
 }
+
+
 
 /* Responsividade adicional */
 @media (max-width: 768px) {
