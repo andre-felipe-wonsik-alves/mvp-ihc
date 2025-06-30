@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TerapiApp - Cuidando da sua Saúde Mental</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <div class="logo-container">
+          <div class="nav-logo">
+            <i class="fa-solid fa-circle-user"></i>
+          </div>
+        </div>
+        <ul class="nav-menu">
+          <li>
+            <a href="./index.html" class="nav-link active">Início</a>
+          </li>
+          <li><a href="./registro.html" class="nav-link">Registro</a></li>
+          <li><a href="./plano.html" class="nav-link">Plano</a></li>
+          <li><a href="./ajuda.html" class="nav-link">Ajuda</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <section class="page-header">
+        <h1><i class="fas fa-shield-alt"></i>Buscar plano de segurança do paciente </h1>
+      </section>
+
+      <section>
+        <div class="search-bar">
+          <div class="lupa">
+            <i class="fa-solid fa-search"></i>
+          </div>
+          <input class="input-search-bar" id="searchbar" type="text">
+          <div class="clear-input">
+            <button class="cancel" onclick="clearInput(document.getElementById('searchbar'))"><i class="fa-solid fa-cancel"></i></button>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div id="dynamicList">
+            <!-- Repeating components will be inserted here by JavaScript -->
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 TerapiApp</p>
+      </div>
+    </footer>
+
+    <script src="./scripts/script.js"></script>|
+    <script>
+      const items = [
+            { id: 1, name: 'Item One', icon: 'fa-star' },
+            { id: 2, name: 'Item Two', icon: 'fa-heart' },
+            { id: 3, name: 'Item Three', icon: 'fa-bell' },
+            { id: 4, name: 'Item Four', icon: 'fa-check-circle' },
+            { id: 5, name: 'Item Five', icon: 'fa-envelope' }
+        ];
+
+        document.addEventListener('DOMContentLoaded', renderList(document.getElementById('dynamicList'), items));
+    </script>
+  </body>
+</html>
