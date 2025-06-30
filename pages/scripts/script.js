@@ -202,11 +202,38 @@ function loadSavedData() {
       });
     }
   }
+}
 
-  // Carregar histórico se estiver na página
-  if (window.location.pathname.includes("historico.html")) {
-    loadHistoryData();
-  }
+function clearInput(input){
+  input.value = '';
+  input.focus();
+}
+
+function renderList(dynamicListContainer, items) {
+  // Clear existing content to prevent duplicates on re-render
+
+  // Loop through the data array
+  items.forEach(item => {
+      // Create the main item div
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'component-item'; // Apply styling class
+
+      // Create the icon element
+      const iconElement = document.createElement('i');
+      iconElement.className = `fas ${item.icon} item-icon`; // Font Awesome icon class and custom styling
+
+      // Create the text element
+      const textElement = document.createElement('span');
+      textElement.className = 'item-text'; // Apply styling class
+      textElement.textContent = item.name;
+
+      // Append icon and text to the item div
+      itemDiv.appendChild(iconElement);
+      itemDiv.appendChild(textElement);
+
+      // Append the item div to the main container
+      dynamicListContainer.appendChild(itemDiv);
+  });
 }
 
 // Carregar dados do histórico

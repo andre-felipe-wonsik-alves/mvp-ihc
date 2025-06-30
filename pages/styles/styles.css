@@ -459,7 +459,7 @@ textarea.form-control {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .btn-group {
         flex-direction: column;
     }
@@ -1137,6 +1137,37 @@ textarea.form-control {
 .insight-card p {
     color: var(--gray-medium);
     line-height: 1.4;
+}
+
+.search-bar{
+    background-color: var(--light-color);
+    border-radius: 20px;
+    height: 40px;
+    max-width: 500px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0px 10px 0px 10px;
+    display: flex; /* Use flexbox for internal layout of search bar elements */
+    justify-content: space-around;
+    align-items: center; /* Vertically align items within the search bar */
+}
+
+.input-search-bar{
+    width: 80%;
+    border:none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+    margin: 0px 30px 5px 10px;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.input-search-bar:focus-visible{
+    outline:none;
+    border-bottom: 1px solid var(--dark-color);
+}
+
+.cancel{
+    all:unset;
 }
 
 
