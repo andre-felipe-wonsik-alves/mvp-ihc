@@ -209,32 +209,69 @@ function clearInput(input){
   input.focus();
 }
 
-function renderList(dynamicListContainer, items) {
+function renderList(container, dataItems) {
   // Clear existing content to prevent duplicates on re-render
+  container.innerHTML = '';
 
   // Loop through the data array
-  items.forEach(item => {
-      // Create the main item div
+  dataItems.forEach(item => {
+      // Create the main item div with class 'item-list'
       const itemDiv = document.createElement('div');
-      itemDiv.className = 'component-item'; // Apply styling class
+      itemDiv.className = 'list-item';
 
-      // Create the icon element
-      const iconElement = document.createElement('i');
-      iconElement.className = `fas ${item.icon} item-icon`; // Font Awesome icon class and custom styling
+      // Create the pfp-div
+      const pfpDiv = document.createElement('div');
+      pfpDiv.className = 'pfp-div';
+      const pfpIcon = document.createElement('i');
+      pfpIcon.className = 'fa-solid fa-circle-user';
+      pfpDiv.appendChild(pfpIcon);
+      itemDiv.appendChild(pfpDiv);
 
-      // Create the text element
-      const textElement = document.createElement('span');
-      textElement.className = 'item-text'; // Apply styling class
-      textElement.textContent = item.name;
+      // Create the content div
+      const contentDiv = document.createElement('div');
+      contentDiv.className = 'item-content';
+      // contentDiv.style.display = 'flex'; // Already handled by CSS class
+      // contentDiv.style.flexDirection = 'column'; // Already handled by CSS class
 
-      // Append icon and text to the item div
-      itemDiv.appendChild(iconElement);
-      itemDiv.appendChild(textElement);
+      const nameSpan = document.createElement('span');
+      nameSpan.className = 'item-name';
+      nameSpan.textContent = item.name;
+      contentDiv.appendChild(nameSpan);
 
-      // Append the item div to the main container
-      dynamicListContainer.appendChild(itemDiv);
+      const ageSpan = document.createElement('span');
+      ageSpan.className = 'age';
+      ageSpan.textContent = `Idade: ${item.age}`; // Display age
+      contentDiv.appendChild(ageSpan);
+      itemDiv.appendChild(contentDiv);
+
+      // Create the buttons div
+      const buttonsDiv = document.createElement('div');
+      buttonsDiv.className = 'buttons';
+      const planButton = document.createElement('button');
+      planButton.className = 'ver-plano';
+      planButton.textContent = 'ver plano';
+      planButton.onclick= () => navigateTo('./registro.html');
+      const buttonIcon = document.createElement('i');
+      buttonIcon.className = 'fa-solid fa-arrow-right button-arrow';
+      // Optional: Add an event listener to the button if needed
+      // planButton.onclick = () => showMessageBox(`View plan for ${item.name}`);
+      buttonsDiv.appendChild(planButton);
+      planButton.appendChild(buttonIcon);
+      itemDiv.appendChild(buttonsDiv);
+
+      // Append the complete item div to the main container
+      container.appendChild(itemDiv);
   });
 }
+
+function search(list, items, searchTerm){
+  if(!searchTerm) return;
+  console.log(searchTerm)
+    const filteredItems = items.filter(item =>
+        item.name.toLowerCase().includes(searchTerm)
+    );
+    renderList(list, items, filteredItems); // Re-render with filtered items
+};
 
 // Carregar dados do histórico
 function loadHistoryData() {

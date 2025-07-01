@@ -36,7 +36,7 @@
 
     <main class="main-content">
       <section class="page-header">
-        <h1><i class="fas fa-shield-alt"></i>Buscar plano de segurança do paciente </h1>
+        <h1></i>Buscar paciente </h1>
       </section>
 
       <section>
@@ -44,21 +44,18 @@
           <div class="lupa">
             <i class="fa-solid fa-search"></i>
           </div>
-          <input class="input-search-bar" id="searchbar" type="text">
+          <input class="input-search-bar" placeholder="Buscar..." id="searchbar" type="text">
           <div class="clear-input">
             <button class="cancel" onclick="clearInput(document.getElementById('searchbar'))"><i class="fa-solid fa-cancel"></i></button>
           </div>
         </div>
-      </section>
-
-      <section>
-        <div id="dynamicList">
-            <!-- Repeating components will be inserted here by JavaScript -->
+        
+        <div class="patient-list" id="dynamicList">
         </div>
       </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer-search">
       <div class="footer-content">
         <p>&copy; 2025 TerapiApp</p>
       </div>
@@ -67,14 +64,13 @@
     <script src="./scripts/script.js"></script>|
     <script>
       const items = [
-            { id: 1, name: 'Item One', icon: 'fa-star' },
-            { id: 2, name: 'Item Two', icon: 'fa-heart' },
-            { id: 3, name: 'Item Three', icon: 'fa-bell' },
-            { id: 4, name: 'Item Four', icon: 'fa-check-circle' },
-            { id: 5, name: 'Item Five', icon: 'fa-envelope' }
+            { id: 1, name: 'Aldemir', age: 54},
+            { id: 2, name: 'Paciente 2', age: 20},
+            { id: 3, name: 'Paciente 3', age: 11},
         ];
-
-        document.addEventListener('DOMContentLoaded', renderList(document.getElementById('dynamicList'), items));
+        dynamicList = document.getElementById('dynamicList');
+        document.addEventListener('searchbar', search(dynamicList, items, document.getElementById('input-search-bar')))
+        document.addEventListener('DOMContentLoaded', renderList(dynamicList, items));
     </script>
   </body>
 </html>
