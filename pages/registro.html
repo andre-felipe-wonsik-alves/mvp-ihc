@@ -29,7 +29,7 @@
           </li>
           <li><a href="./registro.html" class="nav-link">Registro</a></li>
           <li><a href="./plano.html" class="nav-link">Plano</a></li>
-          <li><a href="./ajuda.html" class="nav-link">Ajuda</a></li>
+          <li><a href="./ajuda.html" class="nav-link">Instruções</a></li>
         </ul>
       </div>
     </nav>
@@ -37,7 +37,7 @@
     <main class="main-content">
       <section class="page-header">
         <h1><i class="fas fa-edit"></i> Registro de Mudança de Humor</h1>
-        <p>Anote como você está se sentindo para acompanhar seu bem-estar</p>
+        <h2>Anote como o paciente está se sentindo</h2>
       </section>
 
       <div class="form-container">
@@ -61,7 +61,7 @@
               id="positiveEmotions"
               name="positiveEmotions"
               class="form-control"
-              placeholder="Descreva as emoções positivas que você sentiu hoje..."
+              placeholder="Descreva as emoções positivas que o paciente sentiu hoje..."
             ></textarea>
           </div>
 
@@ -73,7 +73,7 @@
               id="negativeEmotions"
               name="negativeEmotions"
               class="form-control"
-              placeholder="Descreva as emoções negativas que você sentiu hoje..."
+              placeholder="Descreva as emoções negativas que o paciente sentiu hoje..."
             ></textarea>
           </div>
 
@@ -85,7 +85,7 @@
               id="situation"
               name="situation"
               class="form-control"
-              placeholder="Descreva a situação ou contexto que influenciou seu humor..."
+              placeholder="Descreva a situação ou contexto que influenciou o humor do paciente..."
             ></textarea>
           </div>
 
@@ -97,7 +97,7 @@
               id="thoughts"
               name="thoughts"
               class="form-control"
-              placeholder="Quais pensamentos passaram pela sua mente?"
+              placeholder="Quais pensamentos passaram pela mente do paciente?"
             ></textarea>
           </div>
 
@@ -107,7 +107,7 @@
               id="reaction"
               name="reaction"
               class="form-control"
-              placeholder="Como você reagiu à situação?"
+              placeholder="Como o paciente reagiu à situação?"
             ></textarea>
           </div>
 
@@ -141,18 +141,33 @@
           <ul>
             <li>
               Se o motivo do atendimento for proteção a crise suicida, faça um
-              <a href="plano.html">plano de segurança</a>
+              <a href="plano.html">plano de segurança.</a>
             </li>
-            <li>Para mudanças de humor sem risco suicida, use este registro</li>
+            <li>Para mudanças de humor sem risco suicida, use este registro.</li>
           </ul>
         </div>
       </div>
+      </main>
 
     <footer class="footer">
       <div class="footer-content">
         <p>&copy; 2025 TerapiApp - Cuidando da sua saúde mental</p>
       </div>
     </footer>
+
+    <script>
+      // Remove 'active' de todos os links
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        // Verifica se o href termina com o nome da página atual
+        if (
+          window.location.pathname.endsWith(link.getAttribute('href')) ||
+          window.location.pathname.endsWith(link.getAttribute('href').replace('./', ''))
+        ) {
+          link.classList.add('active');
+        }
+      });
+    </script>
 
     <script src="./scripts/script.js"></script>
     <script>
