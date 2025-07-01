@@ -249,11 +249,11 @@ function renderList(container, dataItems) {
       buttonsDiv.className = 'buttons';
       const planButton = document.createElement('button');
       planButton.className = 'ver-plano';
-      planButton.textContent = 'ver plano';
+      planButton.textContent = 'Ver Plano';
       planButton.onclick= () => navigateTo('./plano.html');
       const fileButton = document.createElement('button');
       fileButton.className = 'ver-plano';
-      fileButton.textContent = 'ver registro';
+      fileButton.textContent = 'Ver Registro';
       fileButton.onclick= () => navigateTo('./registro.html');
       const buttonIcon = document.createElement('i');
       buttonIcon.className = 'fa-solid fa-arrow-right button-arrow';
