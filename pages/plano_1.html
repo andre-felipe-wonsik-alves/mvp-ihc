@@ -27,9 +27,9 @@
           <li>
             <a href="../index.html" class="nav-link active">Início</a>
           </li>
-          <li><a href="./registro.html" class="nav-link">Registro</a></li>
-          <li><a href="./plano.html" class="nav-link">Plano</a></li>
-          <li><a href="./ajuda.html" class="nav-link">Instruções</a></li>
+          <li><a href="./pages/registro.html" class="nav-link">Registro</a></li>
+          <li><a href="./pages/plano.html" class="nav-link">Plano</a></li>
+          <li><a href="./pages/ajuda.html" class="nav-link">Ajuda</a></li>
         </ul>
       </div>
     </nav>
@@ -50,7 +50,7 @@
         >
           <div
             style="
-              width: 16%;
+              width: 32%;
               height: 100%;
               background-color: var(--primary-color);
               border-radius: 10px 0 0 10px;
@@ -58,7 +58,7 @@
           ></div>
           <div
             style="
-              width: 84%;
+              width: 68%;
               height: 100%;
               background-color: var(--gray-medium);
               border-radius: 0 10px 10px 0;
@@ -70,17 +70,19 @@
       <div class="form-container">
         <form id="safetyPlanForm">
           <div class="plan-step">
-            <h3><span class="step-number">1</span> Sinais de Alerta</h3>
+            <h3>
+              <span class="step-number">2</span> Estratégias de Enfrentamento
+            </h3>
             <div class="form-group">
-              <label for="warningSignals">
-                <i class="fas fa-exclamation-triangle"></i> Identifique seus
-                sinais de alerta
+              <label for="copingStrategies">
+                <i class="fas fa-tools"></i> O que você pode fazer sozinho para
+                se sentir melhor?
               </label>
               <textarea
-                id="warningSignals"
-                name="warningSignals"
+                id="copingStrategies"
+                name="copingStrategies"
                 class="form-control"
-                placeholder="Ex: Pensamentos negativos, isolamento, mudanças no sono, ..."
+                placeholder="Ex: Respirar fundo, ouvir música, fazer exercícios, meditar, ..."
               ></textarea>
             </div>
           </div>
@@ -94,7 +96,7 @@
               <i class="fas fa-arrow-left"></i> Voltar
             </button>
 
-            <a href="./plano_1.html">
+            <a href="./plano_2.html">
               <button type="button" class="btn btn-primary">
                 <i class="fas fa-arrow-right"></i> Avançar
               </button>
@@ -131,20 +133,6 @@
         <p>&copy; 2025 TerapiApp - Cuidando da sua saúde mental</p>
       </div>
     </footer>
-
-    <script>
-      // Remove 'active' de todos os links
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.remove('active');
-        // Verifica se o href termina com o nome da página atual
-        if (
-          window.location.pathname.endsWith(link.getAttribute('href')) ||
-          window.location.pathname.endsWith(link.getAttribute('href').replace('./', ''))
-        ) {
-          link.classList.add('active');
-        }
-      });
-    </script>
 
     <script src="./scripts/script.js"></script>
   </body>
