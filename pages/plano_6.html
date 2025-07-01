@@ -38,67 +38,35 @@
       <section class="page-header">
         <h1><i class="fas fa-shield-alt"></i> Plano de Segurança</h1>
         <p>Ajude o paciente quando ele está com tendências suicidas.</p>
-        <div
-          id="progress-bar"
-          style="
-            height: 10px;
-            width: 100%;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: row;
-          "
-        >
-          <div
-            style="
-              width: 48%;
-              height: 100%;
-              background-color: var(--primary-color);
-              border-radius: 10px 0 0 10px;
-            "
-          ></div>
-          <div
-            style="
-              width: 52%;
-              height: 100%;
-              background-color: var(--gray-medium);
-              border-radius: 0 10px 10px 0;
-            "
-          ></div>
-        </div>
       </section>
 
       <div class="form-container">
         <form id="safetyPlanForm">
-          <div class="plan-step">
-            <h3>
-              <span class="step-number">3</span> Lugares e pessoas
-            </h3>
+          <div class="plan-step">           
             <div class="form-group">
               <label for="copingStrategies">
-                <i class="fas fa-circle-user"></i> Quais lugares você gosta de visitar para
-                se sentir melhor? Com quem?
+                <i class="fas fa-check-circle"></i> 
+                Plano salvo com sucesso!
               </label>
-              <textarea
-                id="copingStrategies"
-                name="copingStrategies"
-                class="form-control"
-                placeholder="Ex: Ir à um parque, passear com um pet, encontrar amigos, ..."
-              ></textarea>
             </div>
           </div>
 
           <div class="btn-group">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              onclick="window.history.back()"
-            >
-              <i class="fas fa-arrow-left"></i> Voltar
-            </button>
+            <a href="../index.html">
+              <button
+                type="button"
+                class="btn btn-secondary"
+              >
+                <i class="fas fa-arrow-left"></i> Voltar à tela inicial
+              </button>
+            </a>
 
-            <a href="./plano_3.html">
-              <button type="button" class="btn btn-primary">
-                <i class="fas fa-arrow-right"></i> Avançar
+            <a href="./plano_6.html">
+              <button
+                type="button"
+                class="btn btn-success"
+              >
+                <i class="fas fa-save"></i> Imprimir Plano
               </button>
             </a>
           </div>
