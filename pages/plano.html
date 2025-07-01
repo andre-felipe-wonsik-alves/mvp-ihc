@@ -27,9 +27,9 @@
           <li>
             <a href="../index.html" class="nav-link active">Início</a>
           </li>
-          <li><a href="./pages/registro.html" class="nav-link">Registro</a></li>
-          <li><a href="./pages/plano.html" class="nav-link">Plano</a></li>
-          <li><a href="./pages/ajuda.html" class="nav-link">Ajuda</a></li>
+          <li><a href="./registro.html" class="nav-link">Registro</a></li>
+          <li><a href="./plano.html" class="nav-link">Plano</a></li>
+          <li><a href="./ajuda.html" class="nav-link">Instruções</a></li>
         </ul>
       </div>
     </nav>
@@ -131,6 +131,20 @@
         <p>&copy; 2025 TerapiApp - Cuidando da sua saúde mental</p>
       </div>
     </footer>
+
+    <script>
+      // Remove 'active' de todos os links
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        // Verifica se o href termina com o nome da página atual
+        if (
+          window.location.pathname.endsWith(link.getAttribute('href')) ||
+          window.location.pathname.endsWith(link.getAttribute('href').replace('./', ''))
+        ) {
+          link.classList.add('active');
+        }
+      });
+    </script>
 
     <script src="./scripts/script.js"></script>
   </body>

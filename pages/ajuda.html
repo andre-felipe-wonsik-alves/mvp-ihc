@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Precisa de Ajuda? - TerapiApp</title>
+    <title>Instruções - TerapiApp</title>
     <link rel="stylesheet" href="./styles/styles.css" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -11,7 +11,7 @@
     />
   </head>
   <body>
-   <nav class="navbar">
+    <nav class="navbar">
       <div class="nav-container">
         <div class="hamburger">
           <span class="bar"></span>
@@ -27,225 +27,135 @@
           <li>
             <a href="../index.html" class="nav-link active">Início</a>
           </li>
-          <li><a href="./pages/registro.html" class="nav-link">Registro</a></li>
-          <li><a href="./pages/plano.html" class="nav-link">Plano</a></li>
-          <li><a href="./pages/ajuda.html" class="nav-link">Ajuda</a></li>
+          <li><a href="./registro.html" class="nav-link">Registro</a></li>
+          <li><a href="./plano.html" class="nav-link">Plano</a></li>
+          <li><a href="./ajuda.html" class="nav-link">Instruções</a></li>
         </ul>
       </div>
     </nav>
 
     <main class="main-content">
       <section class="page-header">
-        <h1><i class="fas fa-hands-helping"></i> Precisa de Ajuda?</h1>
-        <p>Você não está sozinho. Encontre o apoio que precisa</p>
+        <h1><i class="fas fa-hands-helping"></i> Instruções de Uso</h1>
       </section>
 
-      <div class="help-sections">
-        <div class="help-section">
-          <h2><i class="fas fa-phone"></i> Contatos de Emergência</h2>
-          <div class="contact-grid">
-            <div class="contact-card urgent">
-              <div class="contact-icon">
-                <i class="fas fa-phone-alt"></i>
-              </div>
-              <h3>CVV - Centro de Valorização da Vida</h3>
-              <p class="contact-number">188</p>
-              <p>Prevenção do suicídio - 24h gratuito</p>
-              <button class="btn btn-primary" onclick="callEmergency()">
-                <i class="fas fa-phone"></i> Ligar Agora
-              </button>
-            </div>
-
-            <div class="contact-card">
-              <div class="contact-icon">
-                <i class="fas fa-ambulance"></i>
-              </div>
-              <h3>SAMU</h3>
-              <p class="contact-number">192</p>
-              <p>Emergências médicas</p>
-            </div>
-
-            <div class="contact-card">
-              <div class="contact-icon">
-                <i class="fas fa-hospital"></i>
-              </div>
-              <h3>Bombeiros</h3>
-              <p class="contact-number">193</p>
-              <p>Emergências gerais</p>
-            </div>
+      <div class="form-container">
+        <form id="moodForm">
+          <div class="form-group">
+            <label for="instrução1">
+              <i class="fa-solid fa-circle-info"></i> 1.
+            </label>
+            <p id="instrução1" name="instrução1" class="form-control">
+              Preencha os campos com o máximo de informação possível. Se o
+              motivo do atendimento for proteção a crise suicida, faça um plano
+              de segurança e forneça ao paciente, se forem mudanças de humor e
+              comportamentos sem risco suicida, use o registro de mudança de
+              humor.
+            </p>
           </div>
-        </div>
 
-        <div class="help-section">
-          <h2><i class="fas fa-map-marker-alt"></i> Encontrar Ajuda Próxima</h2>
-          <div class="location-help">
-            <p>Encontre profissionais de saúde mental na sua região</p>
-            <button class="btn btn-secondary" onclick="findNearbyHelp()">
-              <i class="fas fa-search"></i> Buscar Próximo a Mim
+          <div class="form-group">
+            <label for="instrução2">
+              <i class="fa-solid fa-puzzle-piece"></i> 2.
+            </label>
+            <p id="instrução2" name="instrução2" class="form-control">
+              Dê preferência a informações personalizadas, com as soluções
+              evocadas pelo próprio paciente primeiro.
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label for="instrução3">
+              <i class="fa-solid fa-compass"></i> 3.
+            </label>
+            <p id="instrução3" name="instrução3" class="form-control">
+              Na primeira consulta você pode coletar informação de qual etapa
+              ele tem preferência por recorrer para alívio. Incentive o paciente
+              a realizar as etapas de 1 a 6 nesta ordem, para promover autonomia
+              ao paciente na resolução da crise e o ajudar a encontrar recursos
+              próprios.
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label for="instrução4">
+              <i class="fa-solid fa-scale-balanced"></i> 4.
+            </label>
+            <p id="instrução4" name="instrução4" class="form-control">
+              Verifique e esclareça com o paciente se, havendo ideação suicida,
+              ela necessita de resolução de problemas (caso haja um problema que
+              levou a isso), ou dar preferência a distração (para situações que
+              não podem ser solucionados por ele ou que requerem tempo, espera
+              ou aceitação ao se deparar com o que não se podem mudar).
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label for="instrução5">
+              <i class="fa-solid fa-file"></i> 5.
+            </label>
+            <p id="instrução5" name="instrução5" class="form-control">
+              Peça para que o paciente traga nos retornos seu plano de
+              segurança. É importante revisar como utilizou e como se sentiu
+              após fazê-lo.
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label for="instrução6">
+              <i class="fa-solid fa-heart"></i> 6.
+            </label>
+            <p id="instrução6" name="instrução6" class="form-control">
+              Motivos para viver podem ser registrados e impressos ao paciente
+              também. Você pode evocá-los em cada consulta de retorno e
+              encorajar a lembrar deles no dia a dia.
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label for="instrução7">
+              <i class="fa-solid fa-pills"></i> 7.
+            </label>
+            <p id="instrução7" name="instrução7" class="form-control">
+              Caso o paciente esteja em uso de medicamentos, avalie na etapa 6 o
+              risco e benefício de manter o uso ou fornecer acesso a este tipo
+              de método, por exemplo, caso haja tentativa recente ou recorrência
+              de tentativas por intoxicação exógena.
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label for="instrução8">
+              <i class="fa-solid fa-trash"></i> 8.
+            </label>
+            <p id="instrução8" name="instrução8" class="form-control">
+              Na etapa 6, pode ser descrito qualquer tipo de método se o
+              paciente verbalizar um plano ou tiver tentativa recente de
+              autolesão, como lâminas, facas, medicações, cordas, etc. Faça um
+              plano para se desfazer destes.
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label for="instrução9"> <i class="fa-solid fa-hospital"></i> 9. </label>
+            <p id="instrução9" name="instrução9" class="form-control">
+              Se a identificação de risco for alta, através da avaliação do
+              profissional, sugerir a referência atendimento de urgência ou
+              medicação de forma aguda, sugere-se encaminhamento ao Pronto
+              Atendimento de referência.
+            </p>
+          </div>
+
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="window.location.href='../index.html'"
+            >
+              <i class="fas fa-arrow-left"></i> Voltar
             </button>
           </div>
-        </div>
-
-        <div class="help-section">
-          <h2><i class="fas fa-heart"></i> Estratégias de Alívio Imediato</h2>
-          <div class="strategies-grid">
-            <div class="strategy-card">
-              <div class="strategy-icon">
-                <i class="fas fa-wind"></i>
-              </div>
-              <h3>Respiração</h3>
-              <p>Respire fundo por 4 segundos, segure por 4, solte por 6</p>
-              <div class="strategy-steps">
-                <span>Inspire</span>
-                <span>Segure</span>
-                <span>Expire</span>
-              </div>
-            </div>
-
-            <div class="strategy-card">
-              <div class="strategy-icon">
-                <i class="fas fa-eye"></i>
-              </div>
-              <h3>Técnica 5-4-3-2-1</h3>
-              <p>Identifique ao seu redor:</p>
-              <div class="strategy-steps">
-                <span>5 coisas que vê</span>
-                <span>4 que toca</span>
-                <span>3 que ouve</span>
-                <span>2 que cheira</span>
-                <span>1 que saboreia</span>
-              </div>
-            </div>
-
-            <div class="strategy-card">
-              <div class="strategy-icon">
-                <i class="fas fa-walking"></i>
-              </div>
-              <h3>Movimento</h3>
-              <p>Faça uma caminhada, alongue-se ou dance</p>
-              <div class="strategy-steps">
-                <span>Caminhada</span>
-                <span>Alongamento</span>
-                <span>Dança</span>
-              </div>
-            </div>
-
-            <div class="strategy-card">
-              <div class="strategy-icon">
-                <i class="fas fa-users"></i>
-              </div>
-              <h3>Conexão Social</h3>
-              <p>Converse com alguém de confiança</p>
-              <div class="strategy-steps">
-                <span>Família</span>
-                <span>Amigos</span>
-                <span>Profissional</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="help-section">
-          <h2><i class="fas fa-leaf"></i> Distrações Saudáveis</h2>
-          <div class="distraction-categories">
-            <div class="distraction-card">
-              <h3><i class="fas fa-tree"></i> Lugares e Natureza</h3>
-              <ul>
-                <li>Ir a um parque</li>
-                <li>Procurar um lugar com natureza</li>
-                <li>Observar o céu</li>
-                <li>Cuidar de plantas</li>
-              </ul>
-            </div>
-
-            <div class="distraction-card">
-              <h3><i class="fas fa-dumbbell"></i> Atividade Física</h3>
-              <ul>
-                <li>Caminhada</li>
-                <li>Exercícios leves</li>
-                <li>Yoga</li>
-                <li>Dança</li>
-              </ul>
-            </div>
-
-            <div class="distraction-card">
-              <h3><i class="fas fa-paw"></i> Companhia Animal</h3>
-              <ul>
-                <li>Passeio com pet</li>
-                <li>Brincar com animais</li>
-                <li>Visitar um abrigo</li>
-                <li>Assistir vídeos de animais</li>
-              </ul>
-            </div>
-
-            <div class="distraction-card">
-              <h3><i class="fas fa-palette"></i> Atividades Criativas</h3>
-              <ul>
-                <li>Desenhar ou pintar</li>
-                <li>Escrever</li>
-                <li>Ouvir música</li>
-                <li>Cozinhar</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="help-section">
-          <h2><i class="fas fa-info-circle"></i> Recursos Úteis</h2>
-          <div class="resources-grid">
-            <div class="resource-card">
-              <i class="fas fa-globe"></i>
-              <h3>Sites Úteis</h3>
-              <ul>
-                <li>
-                  <a href="https://www.cvv.org.br" target="_blank"
-                    >CVV.org.br</a
-                  >
-                </li>
-                <li>
-                  <a href="https://www.setembroamarelo.com" target="_blank"
-                    >Setembro Amarelo</a
-                  >
-                </li>
-                <li>
-                  <a href="https://www.abrata.org.br" target="_blank">ABRATA</a>
-                </li>
-              </ul>
-            </div>
-
-            <div class="resource-card">
-              <i class="fas fa-mobile-alt"></i>
-              <h3>Apps Recomendados</h3>
-              <ul>
-                <li>Headspace (meditação)</li>
-                <li>Calm (relaxamento)</li>
-                <li>Sanvello (ansiedade)</li>
-              </ul>
-            </div>
-
-            <div class="resource-card">
-              <i class="fas fa-book"></i>
-              <h3>Leituras</h3>
-              <ul>
-                <li>Livros de autoajuda</li>
-                <li>Artigos sobre saúde mental</li>
-                <li>Histórias inspiradoras</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="reminder-section">
-        <div class="reminder-card">
-          <i class="fas fa-heart"></i>
-          <h3>Lembre-se</h3>
-          <p>
-            Você é importante. Seus sentimentos são válidos. Pedir ajuda é um
-            ato de coragem, não de fraqueza. Você não está sozinho nessa
-            jornada.
-          </p>
-        </div>
+        </form>
       </div>
     </main>
 
@@ -255,6 +165,20 @@
       </div>
     </footer>
 
-    <script src="./scripts/script.js"></script>
+    <script>
+      // Remove 'active' de todos os links
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        // Verifica se o href termina com o nome da página atual
+        if (
+          window.location.pathname.endsWith(link.getAttribute('href')) ||
+          window.location.pathname.endsWith(link.getAttribute('href').replace('./', ''))
+        ) {
+          link.classList.add('active');
+        }
+      });
+    </script>
+
+    <script src="./pages/scripts/script.js"></script>
   </body>
 </html>
