@@ -250,13 +250,21 @@ function renderList(container, dataItems) {
       const planButton = document.createElement('button');
       planButton.className = 'ver-plano';
       planButton.textContent = 'ver plano';
-      planButton.onclick= () => navigateTo('./registro.html');
+      planButton.onclick= () => navigateTo('./plano.html');
+      const fileButton = document.createElement('button');
+      fileButton.className = 'ver-plano';
+      fileButton.textContent = 'ver registro';
+      fileButton.onclick= () => navigateTo('./registro.html');
       const buttonIcon = document.createElement('i');
       buttonIcon.className = 'fa-solid fa-arrow-right button-arrow';
+      const buttonIcon2 = document.createElement('i');
+      buttonIcon2.className = 'fa-solid fa-arrow-right button-arrow';
       // Optional: Add an event listener to the button if needed
       // planButton.onclick = () => showMessageBox(`View plan for ${item.name}`);
+      buttonsDiv.appendChild(fileButton);
       buttonsDiv.appendChild(planButton);
       planButton.appendChild(buttonIcon);
+      fileButton.appendChild(buttonIcon2);
       itemDiv.appendChild(buttonsDiv);
 
       // Append the complete item div to the main container
@@ -265,12 +273,11 @@ function renderList(container, dataItems) {
 }
 
 function search(list, items, searchTerm){
-  if(!searchTerm) return;
   console.log(searchTerm)
     const filteredItems = items.filter(item =>
         item.name.toLowerCase().includes(searchTerm)
     );
-    renderList(list, items, filteredItems); // Re-render with filtered items
+    renderList(list, filteredItems); // Re-render with filtered items
 };
 
 // Carregar dados do histórico

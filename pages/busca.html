@@ -39,7 +39,7 @@
         <h1></i>Buscar paciente </h1>
       </section>
 
-      <section>
+      <section class="search-content">
         <div class="search-bar">
           <div class="lupa">
             <i class="fa-solid fa-search"></i>
@@ -49,7 +49,7 @@
             <button class="cancel" onclick="clearInput(document.getElementById('searchbar'))"><i class="fa-solid fa-cancel"></i></button>
           </div>
         </div>
-        
+
         <div class="patient-list" id="dynamicList">
         </div>
       </section>
@@ -68,8 +68,12 @@
             { id: 2, name: 'Paciente 2', age: 20},
             { id: 3, name: 'Paciente 3', age: 11},
         ];
+         const searchbarInput = document.getElementById('searchbar');
         dynamicList = document.getElementById('dynamicList');
-        document.addEventListener('searchbar', search(dynamicList, items, document.getElementById('input-search-bar')))
+        searchbarInput.addEventListener('input', () => {
+            search(dynamicList, items, searchbarInput.value);
+        });
+        
         document.addEventListener('DOMContentLoaded', renderList(dynamicList, items));
     </script>
   </body>
