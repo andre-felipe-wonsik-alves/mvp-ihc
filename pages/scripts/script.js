@@ -255,12 +255,12 @@ function renderList(container, dataItems) {
       fileButton.className = 'ver-plano';
       fileButton.textContent = 'Ver Registro';
       fileButton.onclick= () => navigateTo('./registro.html');
+      
       const buttonIcon = document.createElement('i');
       buttonIcon.className = 'fa-solid fa-arrow-right button-arrow';
       const buttonIcon2 = document.createElement('i');
       buttonIcon2.className = 'fa-solid fa-arrow-right button-arrow';
-      // Optional: Add an event listener to the button if needed
-      // planButton.onclick = () => showMessageBox(`View plan for ${item.name}`);
+      
       buttonsDiv.appendChild(fileButton);
       buttonsDiv.appendChild(planButton);
       planButton.appendChild(buttonIcon);
